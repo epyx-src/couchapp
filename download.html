@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <title>Couchapp - Download
+</title>
+    <!--[if IE]>
+
+    <script>
+        // allow IE to recognize HTMl5 elements
+        document.createElement('section');
+        document.createElement('article');
+        document.createElement('aside');
+        document.createElement('footer');
+        document.createElement('header');
+        document.createElement('nav');
+        document.createElement('time');
+
+    </script>
+    <![endif]-->
+    <link rel="stylesheet" href="css/couchbeam.css?20091017" type="text/css" media="screen, projection" />
+</head>
+<body>
+  <div id="container">
+  <header id="mainhead">
+     <h1><a href="index.html">Couchapp 0.3.4</a></h1>
+    <p id="download">get the source in <a href="http://github.com/couchapp/couchapp">git</a>, then <a href="http://github.com/benoitc/couchapp/couchapp">send feedback</a></p>
+    
+  </header>
+  
+  <section id="content">
+    <h1>Download Couchapp</h1>
+    <p>This is a manual for installing couchapp and its dependencies.</p>
+
+    <h2>Requirements</h2>
+    
+    <ul>
+      <li><a href="http://couchdb.apache.org">CouchDB</a> 0.10 or sup</li>
+      <li><a href="http://python.org">Python</a> 2.5x or 2.6.x</li>
+    </ul>
+    
+    <h2>Install with easy_install</h2>
+    <p>To install couchapp using easy_install you must make sure you have a recent version of setuptools installed (as of this writing, 0.6c6 (0.6a9 on windows) or later):</p>
+    
+    <pre>
+      $ curl -O http://peak.telecommunity.com/dist/ez_setup.py
+      $ sudo python ez_setup.py -U setuptools
+    </pre>
+    
+    <p>To install or upgrade to the latest released version of couchapp:</p>
+    
+    <pre>$ sudo easy_install -U couchapp</pre>
+    
+    <h2>Install from sources</h2>
+    <p>To install couchapp from source, simply use the normal procedure for installing any Python package. Since couchapp uses setuptools, all dependencies (including setuptools itself) will be automatically acquired and installed for you as appropriate.</p>
+    
+    <h3>Fetch sources</h3>
+    <p>To install couchapp from source, simply use the normal procedure for installing any Python package. Since couchapp uses setuptools, all dependencies (including setuptools itself) will be automatically acquired and installed for you as appropriate.</p>
+    
+    <p>You could download latest sources from <a href="http://github.com/couchapp/couchapp/downloads">Github Downloads</a> or fetch them with <em>git</em>. Therefore we have to <a href="http://git-scm.com/download">install git</a> and then run :</p>
+
+    <pre>$ git clone git clone git://github.com/couchapp/couchapp.git</pre>
+
+    A mirror is also available on <a href="hhttp://gitorious.org/couchapp">Gitorious</a>.
+
+    <h3>Installation</h3>
+    
+    <pre>http://gitorious.org/couchapp</pre>
+    
+    <p>If you’re using a git checkout, it’s recommended to use the setuptools develop command, which will simply activate couchapp directly from your source directory. This way you can do a git fetch or make changes to the source code without re-installing every time:</p>
+    
+    <pre>$ python setup.py develop</pre>
+    
+    <h2>Test if couchapp is working</h2>
+    
+    <pre>$ couchapp generate test
+    Generating a new CouchApp in ~/couchdb/test
+    </pre>
+    
+    <p>If you installed from sources, you could also run <code>unittests</code>, in couchapp source folder :</p>
+    <pre>$ python setup.py test</pre>
+  </section>
+  
+  <footer>
+    <p>2009 &copy; <a href="http://benoitc.im">Benoît Chesneau</a> - Some rights resenved</p>
+  </footer>
+  </div>
+</body>
