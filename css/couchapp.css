@@ -126,11 +126,11 @@ h4 {
 	margin:1em 0;
 }
 
-.content header {
+#content header {
 	margin:1em 20px;
 	text-align:center;
 }
-.content header h1 {
+#content header h1 {
     font-family: georgia;
     font-size: 2.6em;
     color: #111;
@@ -139,21 +139,27 @@ h4 {
     font-weight: bold;
     font-style: italic;
 }
-.content header time {
+#content header time {
 	display: block;
 }
-.content header time,
-.content header p {
+#content header time,
+#content header p {
 	font-variant:small-caps;
 	text-transform:capitalize;
 	text-align: center;
 }
 
-.content footer {
+#content footer {
 	display: block;
 	border-top:1px solid #DDDDDD;
 	margin-top:1em;
 	background-color: #e5f1f4;
+}
+
+img {
+    max-width:38em;
+    margin: 0;
+    padding: 0;
 }
 
 p.next {

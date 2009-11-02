@@ -30,6 +30,64 @@ document.createElement('time');
     </header>
 
     <section id="content">
+      <h1>Getting Started</h1>
+      
+      <p>A couchapp is an application located in design document in a database that allows you to render documents and view in any format (could be html, xml, ...). Static files (images, scripts,...) are attachments. A couchapp is rendered by CouchDB to an http client. The basics of formatting documents using show and list functions. These functions convert documents and views, respectively, into non-JSON formats. The rows of each view are processed individually, which keeps long lists from becoming memory hogs.</p>
+      
+      <p>This quick tutorial will show you how to create your first couchapp. Couchapp need to be <a href="download.html">installed</a>.</p>     
+      
+      <h2>Generate the application</h2>
+      
+      <p>Generate the application from default template :</p>
+      
+      <pre>$ couchapp generate mycouchapp
+[INFO] Generating a new CouchApp in /Users/benoitc/tests/mycouchapp</pre>
+      
+      <p>This command generate default folder of a couchapp :</p>
+      
+      <img src="img/getting_started_generate.png" alt="Folder created by couchapp generate command">
+      
+      <h2>Push your application to couchdb</h2>
+      
+      <script src="http://friendpaste.com/4G46WmzU4vt9sAFUboi8je.js"></script>
+      
+      <p>This command push the application <code>mycouchapp</code> on the CouchDB node located at <code>http://127.0.0.1</code> in the database <code>mydb</code>.</p>
+      <p>Now you can go at the url http://127.0.0.1:5984/mydb/_design/mycouchapp/index.html in your browser and you will see :</p>
+      
+      <img src="img/couchapp_placeholder.png" alt="couchapp placeholder page">
+      
+      <h2>Create your first <strong>show</strong></h2>
+
+      <p>Shows are javascript function added to a design document. They allow to render document in the format you want. For example you could render a post in html, xml, rdf...</p>
+      
+      <p>A show is available on such url : <code>http://server_uri/dbname/_design/designname/_show/showname/docid</code></p>
+      
+      <p>Couchapp allow you to generate basic template of a show function :</p>
+      
+      <pre>$ couchapp generate show welcome</pre>
+
+      It create the file welcome.js in /Users/benoitc/tests/mycouchapp/shows :
+      
+      <script src="http://friendpaste.com/loDv1of4k2kTalzl8tCHp.js"></script>
+      
+      Show function are normally used to render document. But here we will just return a welcome message :
+      
+      <script src="http://friendpaste.com/ETnURNUxWpOj7hqlpDj10.js"></script>
+        
+      <p>Then again push the couchapp to your CouchDB node :</p>
+      
+      <pre>$ couchapp push mydb</pre>
+      
+      <p>And go on url <code>http://127.0.0.1:5984/mydb/_design/mycouchapp/_show/welcome</code></p>
+      <p>You should see :</p>
+      
+      <img src="img/getting_started_welcome.png" alt="couchapp hello world">
+      
+      
+      <p>That's it for now.</p>
+      
+        
+      
     </section>
     <footer>
       <p>2009 &copy; <a href="http://benoitc.im">Benoît Chesneau</a> - This work is under <a href="http://github.com/couchapp/couchapp/raw/master/LICENSE">the Apache 2 License.</a></p>
