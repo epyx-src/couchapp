@@ -77,6 +77,12 @@ a:hover {
 p, ul, ol, dl, pre, blockquote, table, form {
 	margin:1em 0;
 }
+
+ol li ul {
+    margin: 0;
+    padding: 0;
+}
+
 dl {
 	margin-left:2em;
 }
