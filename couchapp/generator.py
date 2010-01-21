@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2008,2009 Benoit Chesneau <benoitc@e-engura.org>
+# Copyright 2008,2009 Benoit Chesneau <benoitc@e-engura.org>, Alexander Lang (alex@upstre.am), Frank Prößdorf
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.
@@ -17,7 +17,9 @@
 import os
 import shutil
 import sys
+import glob
 
+from couchappext import pystache
 from couchapp.errors import AppError
 from couchapp import localdoc
 from couchapp.utils import user_path, relpath
@@ -84,6 +86,41 @@ def generate_app(ui, path, template=None, create=False):
         doc = localdoc.instance(ui, path, create=True)
 
     #ui.extensions.notify("post-generate", path)
+
+def generate_resource(ui, path, name, options):
+    plural_name = name + 's'
+    template_dir = find_template_dir('resource')
+    view = {'plural_name': plural_name, 'singular_name': name}
+    
+    templates = glob.glob(os.path.join(template_dir, '**', '*'))
+    for template_path in templates:
+        if os.path.isdir(template_path):
+            in_app_path_template = template_path.replace(template_dir + '/', '')
+            in_app_path = pystache.render(in_app_path_template, view)
+            print os.path.join(path, in_app_path)
+            mkdir_f(os.path.join(path, in_app_path))
+        else:
+            template = read_file(template_path)
+            contents = pystache.render(template, view)
+            in_app_path_template = template_path.replace(template_dir + '/', '')
+            in_app_path = pystache.render(in_app_path_template, view)
+            mkdir_f(os.path.join(path, os.path.dirname(in_app_path)))
+            write_file(os.path.join(path, in_app_path), contents)
+
+def mkdir_f(path):
+    if not os.path.exists(path):
+        os.makedirs(path)
+
+def read_file(path):
+    f = open(path, 'r')
+    contents = f.read()
+    f.close()
+    return contents
+
+def write_file(path, contents):
+    f = open(path, 'w')
+    f.write(contents)
+    f.close()
     
 def generate_function(ui, path, kind, name, template=None):
     functions_path = ['functions']
@@ -166,7 +203,7 @@ def find_template_dir(directory=''):
         modpath = __file__
         
     default_locations = [os.path.join(os.path.dirname(modpath), p, directory) for p in paths]
-    
+
     if directory:
         user_locations = []
         for user_location in user_path():
@@ -182,3 +219,4 @@ def find_template_dir(directory=''):
     if found:
         return template_dir
     return False
+    
