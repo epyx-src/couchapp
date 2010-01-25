@@ -247,13 +247,14 @@ def clone(ui, source, dest=None, rev=None):
                     
 def generate(ui, path, kind, name, **opts):
     if kind not in ["app", "view", "list", "show", 'filter', 'function', 'vendor', 'update', 'resource']:
-        raise AppError("Can't generate %s in your couchapp. generator is unknown" % kind)
+        raise AppError("Can't generate %s in your couchapp. Generator is unknown" % kind)
 
     if kind == "app":
         generator.generate_app(ui, path, template=opts.get("template"), 
                         create=opts.get('create', False))
     elif kind == "resource":
-        generator.generate_resource(ui, path, name, opts)
+        opts['attributes'] = name.strip()
+        generator.generate_resource(ui, os.getcwd(), path.strip(), opts)
     else:
         if name is None:
             raise AppError("Can't generate %s function, name is missing" % kind)

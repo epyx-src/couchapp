@@ -31,10 +31,11 @@ class CliTestCase(unittest.TestCase):
         self.ui = ui = UI()
         self.db = Database(ui, 'http://127.0.0.1:5984/couchapp-test', create=True)
             
+        couchapp_bin = os.path.join(os.path.dirname(__file__), 'couchapp')
         self.tempdir = _tempdir()
         os.makedirs(self.tempdir)
         self.app_dir = os.path.join(self.tempdir, "my-app")
-        self.cmd = "cd %s && couchapp" % self.tempdir
+        self.cmd = "cd %s && python %s" % (self.tempdir, couchapp_bin)
         self.startdir = os.getcwd()
         
     def tearDown(self):
@@ -45,8 +46,8 @@ class CliTestCase(unittest.TestCase):
         deltree(self.tempdir)
         os.chdir(self.startdir)
         
-    def _make_testapp(self):
-        testapp_path = os.path.join(os.path.dirname(__file__), 'testapp')
+    def _make_testapp(self, path = None):
+        testapp_path = path or os.path.join(os.path.dirname(__file__), 'testapp')
         shutil.copytree(testapp_path, self.app_dir)
         
     def testGenerate(self):
@@ -63,7 +64,12 @@ class CliTestCase(unittest.TestCase):
         self.assert_(os.path.isdir(os.path.join(appdir, 'views')) == True)
         self.assert_(os.path.isdir(os.path.join(appdir, 'shows')) == True)
         self.assert_(os.path.isdir(os.path.join(appdir, 'lists')) == True)
-        
+    
+    def testGenerateResource(self):
+        self._make_testapp(self.tempdir)
+        (child_stdin, child_stdout, child_stderr) = popen3("%s generate resource blog_post title,author,body" % self.cmd)
+        self.assert_(os.path.isfile(os.path.join(self.tempdir, '_attachments', 'blog_posts', 'new.html')) == True)
+    
     def testPush(self):
         self._make_testapp()
         (child_stdin, child_stdout, child_stderr) = popen3("%s push -v my-app couchapp-test" % self.cmd)
@@ -209,7 +215,7 @@ class CliTestCase(unittest.TestCase):
         # create 2 apps
         (child_stdin, child_stdout, child_stderr) = popen3("%s generate docs/app1" % self.cmd)
         (child_stdin, child_stdout, child_stderr) = popen3("%s generate docs/app2" % self.cmd)
-
+    
         
         (child_stdin, child_stdout, child_stderr) = popen3("%s pushapps docs/ http://127.0.0.1:5984/couchapp-test" % self.cmd)
         
@@ -226,7 +232,7 @@ class CliTestCase(unittest.TestCase):
         # create 2 apps
         (child_stdin, child_stdout, child_stderr) = popen3("%s generate docs/app1" % self.cmd)
         (child_stdin, child_stdout, child_stderr) = popen3("%s generate docs/app2" % self.cmd)
-
+    
         
         (child_stdin, child_stdout, child_stderr) = popen3("%s pushdocs docs/ http://127.0.0.1:5984/couchapp-test" % self.cmd)
         
@@ -235,9 +241,6 @@ class CliTestCase(unittest.TestCase):
         
         self.assert_('_design/app1' == alldocs.first()['id'])
         
-    def _make_testapp(self):
-        testapp_path = os.path.join(os.path.dirname(__file__), 'testapp')
-        shutil.copytree(testapp_path, self.app_dir)
         
 if __name__ == '__main__':
     unittest.main()

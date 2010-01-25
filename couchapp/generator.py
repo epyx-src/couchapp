@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 #
-# Copyright 2008,2009 Benoit Chesneau <benoitc@e-engura.org>, Alexander Lang (alex@upstre.am), Frank Prößdorf
+# Copyright 2008,2009 Benoit Chesneau <benoitc@e-engura.org>
 #
 #  Licensed under the Apache License, Version 2.0 (the "License");
 #  you may not use this file except in compliance with the License.

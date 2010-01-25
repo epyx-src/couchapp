@@ -12,7 +12,7 @@ import unittest
 
 sys.path.insert(0,'..')
 
-from couchapp.app import generate
+from couchapp.resource_generator import ResourceGenerator
 from couchapp.ui import UI
 from couchapp.utils import deltree
 
@@ -29,7 +29,7 @@ class GenerateResourceTestCase(unittest.TestCase):
         self.ui = ui = UI()            
         self.appdir = _tempdir()
         os.makedirs(self.appdir)
-        generate(self.ui, self.appdir, 'resource', 'blog_post', **{'attributes': 'title,author,body'})
+        ResourceGenerator(os.path.join('..', 'templates', 'resource')).generate(self.appdir, 'blog_post', {'attributes': 'title,author,body'})
         
     def tearDown(self):
         deltree(self.appdir)
@@ -76,7 +76,7 @@ class GenerateResourceTestCase(unittest.TestCase):
     
     def testGeneratesCouchapprc(self):
         couchapprc_template = self.readfile('.couchapprc')
-        self.assert_("http://localhost:5984/blog_post_test/_design/blog_post/" in couchapprc_template)
+        self.assert_("http://localhost:5984/blog_post_test/" in couchapprc_template)
         
     def readfile(self, *in_app_path):
         in_app_path_string = os.path.join(*in_app_path)
