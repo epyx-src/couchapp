@@ -48,6 +48,14 @@ class GenerateResourceTestCase(unittest.TestCase):
     
     def testGeneratesDirectoriesWithPluralNames(self):
         self.assert_(os.path.isdir(os.path.join(self.appdir, 'views', 'blog_posts')) == True)
+        
+    def testCreatesListOfAttributes(self):
+        show_template = self.readfile('templates', 'blog_posts', 'show.mustache')
+        self.assert_("{{#blog_post}}" in show_template)
+        self.assert_('<input type="hidden" name="blog_post[_deleted]" value="true"/>' in show_template)
+        self.assert_("<p class=\"title\">Title: {{title}}</p>" in show_template)
+        self.assert_("<p class=\"author\">Author: {{author}}</p>" in show_template)
+        self.assert_("<p class=\"body\">Body: {{body}}</p>" in show_template)
     
     def readfile(self, *in_app_path):
         in_app_path_string = os.path.join(*in_app_path)

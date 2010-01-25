@@ -90,23 +90,32 @@ def generate_app(ui, path, template=None, create=False):
 def generate_resource(ui, path, name, options):
     plural_name = name + 's'
     template_dir = find_template_dir('resource')
-    view = {'plural_name': plural_name, 'singular_name': name}
+    view = {
+        'plural_name': plural_name, 'singular_name': name,
+        'attributes': map(create_attribute, options['attributes'].split(','))
+    }
     
-    templates = glob.glob(os.path.join(template_dir, '**', '*'))
+    templates = glob.glob(os.path.join(template_dir, '*', '*')) + glob.glob(os.path.join(template_dir, '*', '*', '*'))
     for template_path in templates:
+        in_app_path_template = template_path.replace(template_dir + '/', '')
+        pystache.Template.ctag = '%>'
+        pystache.Template.otag = '<%'
+        in_app_path = pystache.render(in_app_path_template, view)
         if os.path.isdir(template_path):
-            in_app_path_template = template_path.replace(template_dir + '/', '')
-            in_app_path = pystache.render(in_app_path_template, view)
-            print os.path.join(path, in_app_path)
             mkdir_f(os.path.join(path, in_app_path))
         else:
             template = read_file(template_path)
             contents = pystache.render(template, view)
-            in_app_path_template = template_path.replace(template_dir + '/', '')
-            in_app_path = pystache.render(in_app_path_template, view)
             mkdir_f(os.path.join(path, os.path.dirname(in_app_path)))
             write_file(os.path.join(path, in_app_path), contents)
 
+def create_attribute(attribute):
+    return {
+        'name': attribute,
+        'label': attribute.replace(attribute[0], attribute[0].upper(), 1),
+        'class': attribute
+    }
+    
 def mkdir_f(path):
     if not os.path.exists(path):
         os.makedirs(path)

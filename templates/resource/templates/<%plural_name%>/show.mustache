@@ -1,0 +1,15 @@
+{{#<%singular_name%>}}
+  <%#attributes%>
+    <p class="<%class%>"><%label%>: {{<%name%>}}</p>
+  <%/attributes%>
+{{/<%singular_name%>}}
+  
+<form action="{{update_url}}" method="post">
+  <input type="hidden" name="<%singular_name%>[_deleted]" value="true"/>
+  <p><input type="submit" value="Remove"/></p>
+</form>
+
+<p>
+  <a href="{{edit_url}}">Edit</a>,
+  <a href="{{list_url}}">List</a>
+</p>
