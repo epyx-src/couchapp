@@ -1,0 +1,11 @@
+<h1>New <%singular_label%></h1>
+
+<form action="../_update/<%singular_name%>" method="post">
+  <%#attributes%>
+    <p>
+      <label for="<%singular_name%>_<%name%>"><%label%></label>
+      <input type="text" id="<%singular_name%>_<%name%>" name="<%singular_name%>[<%name%>]"/>
+    </p>
+  <%/attributes%>
+  <p><input type="submit" value="Create"/></p>
+</form>

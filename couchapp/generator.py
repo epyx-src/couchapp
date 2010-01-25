@@ -93,15 +93,20 @@ def generate_resource(ui, path, name, options):
     template_dir = find_template_dir('resource')
     view = {
         'plural_name': plural_name, 'singular_name': name,
-        'attributes': map(create_attribute, options['attributes'].split(',')),
-        'plural_label': re.sub(r'(_\w)', humanize, plural_name.capitalize())
+        'plural_label': humanize(plural_name),
+        'singular_label': humanize(name)
     }
+    attributes_view = map(create_attribute, options['attributes'].split(','))
+    for attribute in attributes_view:
+        attribute['singular_name'] = name
+    view['attributes'] = attributes_view
+    
+    pystache.Template.ctag = '%>'
+    pystache.Template.otag = '<%'
     
     templates = glob.glob(os.path.join(template_dir, '*', '*')) + glob.glob(os.path.join(template_dir, '*', '*', '*'))
     for template_path in templates:
         in_app_path_template = template_path.replace(template_dir + '/', '')
-        pystache.Template.ctag = '%>'
-        pystache.Template.otag = '<%'
         in_app_path = pystache.render(in_app_path_template, view)
         if os.path.isdir(template_path):
             mkdir_f(os.path.join(path, in_app_path))
@@ -111,9 +116,9 @@ def generate_resource(ui, path, name, options):
             mkdir_f(os.path.join(path, os.path.dirname(in_app_path)))
             write_file(os.path.join(path, in_app_path), contents)
 
-def humanize(match):
-    return match.group(0).upper().replace('_', ' ')
-
+def humanize(name):
+    capitalize_match = lambda match: match.group(0).upper().replace('_', ' ')
+    return re.sub(r'(_\w)', capitalize_match, name.capitalize())
 
 def create_attribute(attribute):
     return {
