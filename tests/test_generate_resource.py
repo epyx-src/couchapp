@@ -69,6 +69,15 @@ class GenerateResourceTestCase(unittest.TestCase):
         new_template = self.readfile('_attachments', 'blog_posts', 'new.html')
         self.assert_('<label for="blog_post_title">Title</label>' in new_template)
         
+    def testUseFirstAttributeForTests(self):
+        test_template = self.readfile('test', 'blog_post_test.js')
+        self.assert_("to_test(create_blog_post({title: 'test_title'})" in test_template)
+        self.assert_("{xpath: \"//p[@class='title']\", validator: 'Title: test_title'}" in test_template)
+    
+    def testGeneratesCouchapprc(self):
+        couchapprc_template = self.readfile('.couchapprc')
+        self.assert_("http://localhost:5984/blog_post_test/_design/blog_post/" in couchapprc_template)
+        
     def readfile(self, *in_app_path):
         in_app_path_string = os.path.join(*in_app_path)
         path = os.path.join(self.appdir, in_app_path_string)

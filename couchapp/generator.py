@@ -99,12 +99,16 @@ def generate_resource(ui, path, name, options):
     attributes_view = map(create_attribute, options['attributes'].split(','))
     for attribute in attributes_view:
         attribute['singular_name'] = name
+        attribute['plural_name'] = plural_name
     view['attributes'] = attributes_view
+    view['first_attribute'] = [attributes_view[0]]
     
     pystache.Template.ctag = '%>'
     pystache.Template.otag = '<%'
     
-    templates = glob.glob(os.path.join(template_dir, '*', '*')) + glob.glob(os.path.join(template_dir, '*', '*', '*'))
+    templates = glob.glob(os.path.join(template_dir, '*', '*')) + \
+        glob.glob(os.path.join(template_dir, '*', '*', '*')) + \
+        [os.path.join(template_dir, '.couchapprc')]
     for template_path in templates:
         in_app_path_template = template_path.replace(template_dir + '/', '')
         in_app_path = pystache.render(in_app_path_template, view)
