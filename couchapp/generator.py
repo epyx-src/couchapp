@@ -17,12 +17,10 @@
 import os
 import shutil
 import sys
-import glob
-import re
 
-from couchappext import pystache
 from couchapp.errors import AppError
 from couchapp import localdoc
+from couchapp.resource_generator import ResourceGenerator
 from couchapp.utils import user_path, relpath
 
 __all__ = ["generate_app", "generate_function"]
@@ -87,64 +85,6 @@ def generate_app(ui, path, template=None, create=False):
         doc = localdoc.instance(ui, path, create=True)
 
     #ui.extensions.notify("post-generate", path)
-
-def generate_resource(ui, path, name, options):
-    plural_name = name + 's'
-    template_dir = find_template_dir('resource')
-    view = {
-        'plural_name': plural_name, 'singular_name': name,
-        'plural_label': humanize(plural_name),
-        'singular_label': humanize(name)
-    }
-    attributes_view = map(create_attribute, options['attributes'].split(','))
-    for attribute in attributes_view:
-        attribute['singular_name'] = name
-        attribute['plural_name'] = plural_name
-    view['attributes'] = attributes_view
-    view['first_attribute'] = [attributes_view[0]]
-    
-    pystache.Template.ctag = '%>'
-    pystache.Template.otag = '<%'
-    
-    templates = glob.glob(os.path.join(template_dir, '*', '*')) + \
-        glob.glob(os.path.join(template_dir, '*', '*', '*')) + \
-        [os.path.join(template_dir, '.couchapprc')]
-    for template_path in templates:
-        in_app_path_template = template_path.replace(template_dir + '/', '')
-        in_app_path = pystache.render(in_app_path_template, view)
-        if os.path.isdir(template_path):
-            mkdir_f(os.path.join(path, in_app_path))
-        else:
-            template = read_file(template_path)
-            contents = pystache.render(template, view)
-            mkdir_f(os.path.join(path, os.path.dirname(in_app_path)))
-            write_file(os.path.join(path, in_app_path), contents)
-
-def humanize(name):
-    capitalize_match = lambda match: match.group(0).upper().replace('_', ' ')
-    return re.sub(r'(_\w)', capitalize_match, name.capitalize())
-
-def create_attribute(attribute):
-    return {
-        'name': attribute,
-        'label': attribute.capitalize(),
-        'class': attribute
-    }
-    
-def mkdir_f(path):
-    if not os.path.exists(path):
-        os.makedirs(path)
-
-def read_file(path):
-    f = open(path, 'r')
-    contents = f.read()
-    f.close()
-    return contents
-
-def write_file(path, contents):
-    f = open(path, 'w')
-    f.write(contents)
-    f.close()
     
 def generate_function(ui, path, kind, name, template=None):
     functions_path = ['functions']
@@ -190,7 +130,10 @@ def generate_function(ui, path, kind, name, template=None):
                 ui.logger.info("%s not found in %s" % (template, os.path.join(*root_path[:-1])))
     else:
         raise AppError("Defaults templates not found. Check your install.")
-        
+
+def generate_resource(ui, path, name, options):
+    """ Generate templates, views, updates, lists, shows to CRUD a RESTful resource """
+    ResourceGenerator(find_template_dir('resource')).generate(path, name, options)
 
 def copy_helper(path, directory):
     """ copy helper used to generate an app"""
