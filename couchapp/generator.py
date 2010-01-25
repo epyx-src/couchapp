@@ -18,6 +18,7 @@ import os
 import shutil
 import sys
 import glob
+import re
 
 from couchappext import pystache
 from couchapp.errors import AppError
@@ -92,7 +93,8 @@ def generate_resource(ui, path, name, options):
     template_dir = find_template_dir('resource')
     view = {
         'plural_name': plural_name, 'singular_name': name,
-        'attributes': map(create_attribute, options['attributes'].split(','))
+        'attributes': map(create_attribute, options['attributes'].split(',')),
+        'plural_label': re.sub(r'(_\w)', humanize, plural_name.capitalize())
     }
     
     templates = glob.glob(os.path.join(template_dir, '*', '*')) + glob.glob(os.path.join(template_dir, '*', '*', '*'))
@@ -109,10 +111,14 @@ def generate_resource(ui, path, name, options):
             mkdir_f(os.path.join(path, os.path.dirname(in_app_path)))
             write_file(os.path.join(path, in_app_path), contents)
 
+def humanize(match):
+    return match.group(0).upper().replace('_', ' ')
+
+
 def create_attribute(attribute):
     return {
         'name': attribute,
-        'label': attribute.replace(attribute[0], attribute[0].upper(), 1),
+        'label': attribute.capitalize(),
         'class': attribute
     }
     

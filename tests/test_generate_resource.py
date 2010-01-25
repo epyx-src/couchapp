@@ -57,6 +57,10 @@ class GenerateResourceTestCase(unittest.TestCase):
         self.assert_("<p class=\"author\">Author: {{author}}</p>" in show_template)
         self.assert_("<p class=\"body\">Body: {{body}}</p>" in show_template)
     
+    def testGenereatesPluralLabel(self):
+        index_template = self.readfile('templates', 'blog_posts', 'index.mustache')
+        self.assert_("<h1>Blog Posts</h1>" in index_template)
+        
     def readfile(self, *in_app_path):
         in_app_path_string = os.path.join(*in_app_path)
         path = os.path.join(self.appdir, in_app_path_string)

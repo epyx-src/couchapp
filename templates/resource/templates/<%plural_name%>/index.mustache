@@ -1,0 +1,12 @@
+<h1><%plural_label%></h1>
+
+<ul>
+  {{#<%plural_name%>}}
+    <li>
+      <%#attributes%>
+        <p class="<%class%>"><%label%>: {{<%name%>}}</p>
+      <%/attributes%>
+      <p><a href="{{show_url}}">Show</a></p>
+    </li>
+  {{/<%plural_name%>}}
+</ul>

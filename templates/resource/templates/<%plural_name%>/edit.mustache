@@ -1,0 +1,13 @@
+<form action="{{update_url}}" method="post">
+  {{#<%singular_name%>}}
+    <%#attributes%>
+      <p>
+        <label for="<%singular_name%>_<%name%>"><%label%>:</label><br/>
+        <input type="text" name="<%singular_name%>[<%name%>]" id="<%singular_name%>_<%name%>" value="{{<%name%>}}"/>
+      </p>
+    <%/attributes%>
+  {{/<%singular_name%>}}
+  <p><input type="submit" value="Save"/></p>
+</form>
+
+<p><a href="{{show_url}}">Back</a></p>
