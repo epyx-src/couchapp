@@ -31,11 +31,11 @@ class CliTestCase(unittest.TestCase):
         self.ui = ui = UI()
         self.db = Database(ui, 'http://127.0.0.1:5984/couchapp-test', create=True)
             
-        couchapp_bin = os.path.join(os.path.dirname(__file__), 'couchapp')
+        self.couchapp_bin = os.path.join(os.path.dirname(__file__), 'couchapp')
         self.tempdir = _tempdir()
         os.makedirs(self.tempdir)
         self.app_dir = os.path.join(self.tempdir, "my-app")
-        self.cmd = "cd %s && python %s" % (self.tempdir, couchapp_bin)
+        self.cmd = "cd %s && python %s" % (self.tempdir, self.couchapp_bin)
         self.startdir = os.getcwd()
         
     def tearDown(self):
@@ -66,8 +66,9 @@ class CliTestCase(unittest.TestCase):
         self.assert_(os.path.isdir(os.path.join(appdir, 'lists')) == True)
     
     def testGenerateResource(self):
+        cmd = "python %s" % self.couchapp_bin
         self._make_testapp(self.tempdir)
-        (child_stdin, child_stdout, child_stderr) = popen3("%s generate --attributes title,author,body resource . blog_post" % self.cmd)
+        (child_stdin, child_stdout, child_stderr) = popen3("%s generate --attributes title,author,body resource %s blog_post" % (cmd, self.tempdir))
         self.assert_(os.path.isfile(os.path.join(self.tempdir, '_attachments', 'blog_posts', 'new.html')) == True)
         
     def testPush(self):
