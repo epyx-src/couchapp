@@ -12,8 +12,9 @@ function(head, req) {
     send(CouchApp.rendering.with_layout(templates, Mustache.to_html(templates.<%plural_name%>.index, {
       <%plural_name%>: rows,
       show_url: function() {
-        return CouchApp.path.showPath('blog_post', this._id);
-      }
+        return CouchApp.path.showPath('<%singular_name%>', this._id);
+      },
+      new_url: CouchApp.path.assetPath('<%plural_name%>', 'new.html')
     })));
   });
 }
