@@ -114,6 +114,14 @@ class GenerateResourceTestCase(unittest.TestCase):
         couchapprc = json.loads(self.readfile('.couchapprc'))
         self.assert_("blog" in couchapprc['env']['default']['name'])
     
+    def testDoesNotExtendCouchapprcIfDbIsAlreadyThere(self):
+        self.generator.cli = self.FakeCli(True)
+        self.writefile('{"env": {"test": {"db": "my_db"}}}', '.couchapprc')
+        self.generator.ui.updateconfig(self.appdir)
+        self.run_generate()
+        couchapprc = json.loads(self.readfile('.couchapprc'))
+        self.assert_("my_db" in couchapprc['env']['test']['db'])
+        
     def testAsksBeforeOverwritingFiles(self):
         cli = self.FakeCli(True)
         self.generator.cli = cli

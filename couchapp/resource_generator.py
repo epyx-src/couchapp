@@ -128,7 +128,8 @@ class ResourceGenerator(object):
             conf = json.loads(self.read_file(rcpath))
         else:
             conf = {'env': {}}
-        conf['env']['test'] = {'db': 'http://localhost:5984/%s_test/' % self.app_name()}
+        if not('env' in conf and 'test' in conf['env'] and 'db' in conf['env']['test']):
+            conf['env']['test'] = {'db': 'http://localhost:5984/%s_test/' % self.app_name()}
         self.write_file(rcpath, json.dumps(conf))
 
     def app_name(self):
