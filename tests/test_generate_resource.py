@@ -11,9 +11,9 @@ import sys
 import unittest
 import StringIO
 
-sys.path.insert(0,'..')
+sys.path.insert(0, '..')
 
-from couchapp.resource_generator import ResourceGenerator, Cli
+from couchapp.resource_generator import *
 from couchapp.ui import UI
 from couchapp.utils import deltree
 
