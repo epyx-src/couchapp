@@ -83,6 +83,9 @@ def generate_app(ui, path, template=None, create=False):
     
     if create:
         doc = localdoc.instance(ui, path, create=True)
+        app_name = os.path.split(path)[-1]
+        rcfile = os.path.join(path, '.couchapprc')
+        ui.write_json(rcfile, {"env": {"default": {"name": app_name}}})
 
     #ui.extensions.notify("post-generate", path)
     
