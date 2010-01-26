@@ -21,13 +21,14 @@ import os
 import sys
 
 from couchappext import pystache
-
+from couchappext.inflector.Inflector import Inflector
 
 class ResourceGenerator(object):
     template_dir = ''
     
     def __init__(self, _template_dir):
         self.cli = Cli(sys.stdin, sys.stdout)
+        self.inflector = Inflector()
         pystache.Template.ctag = '%>'
         pystache.Template.otag = '<%'
         self.template_dir = _template_dir
@@ -73,11 +74,11 @@ class ResourceGenerator(object):
     
     def prepare_view(self, name, attributes):
         """ Create a hash that enables us to render the mustache templates """
-        plural_name = name + 's'
+        plural_name = self.inflector.pluralize(name)
         view = {
             'plural_name': plural_name, 'singular_name': name,
-            'plural_label': self.humanize(plural_name),
-            'singular_label': self.humanize(name)
+            'plural_label': self.inflector.titleize(plural_name),
+            'singular_label': self.inflector.titleize(name)
         }
         attributes_view = map(self.create_attribute, attributes.split(','))
         for attribute in attributes_view:
@@ -87,11 +88,6 @@ class ResourceGenerator(object):
         view['first_attribute'] = [attributes_view[0]]
         return view
         
-
-    def humanize(self, name):
-        """ Create a human readable version of an underscored string """
-        capitalize_match = lambda match: match.group(0).upper().replace('_', ' ')
-        return re.sub(r'(_\w)', capitalize_match, name.capitalize())
 
     def create_attribute(self, attribute):
         """ Create a hash describing the attribute """
