@@ -133,7 +133,7 @@ def generate_function(ui, path, kind, name, template=None):
 
 def generate_resource(ui, path, name, options):
     """ Generate templates, views, updates, lists, shows to CRUD a RESTful resource """
-    ResourceGenerator(find_template_dir('resource')).generate(path, name, options)
+    ResourceGenerator(find_template_dir('resource'), ui).generate(path, name, options)
 
 def copy_helper(path, directory):
     """ copy helper used to generate an app"""

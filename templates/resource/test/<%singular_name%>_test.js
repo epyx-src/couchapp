@@ -15,7 +15,7 @@ var test_<%plural_name%> = new function() {
     this.delete_objects();
   };
   
-  var app_url = 'http://localhost:5984/<%singular_name%>_test/_design/<%singular_name%>/';
+  var app_url = 'http://localhost:5984/<%app_name%>_test/_design/<%app_name%>/';
   
   this.test_create_<%singular_name%> = to_test([
     ['open', {url: app_url + "<%plural_name%>/new.html"}],

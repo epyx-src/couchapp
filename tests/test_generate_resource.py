@@ -30,7 +30,7 @@ class GenerateResourceTestCase(unittest.TestCase):
         self.ui = ui = UI()            
         self.appdir = _tempdir()
         os.makedirs(self.appdir)
-        self.generator = ResourceGenerator(os.path.join('..', 'templates', 'resource'))
+        self.generator = ResourceGenerator(os.path.join('..', 'templates', 'resource'), ui)
         self.generator.cli.outIO = StringIO.StringIO()
         
     def tearDown(self):
@@ -83,16 +83,27 @@ class GenerateResourceTestCase(unittest.TestCase):
         new_template = self.readfile('_attachments', 'blog_posts', 'new.html')
         self.assert_('<label for="blog_post_title">Title</label>' in new_template)
         
-    def testUseFirstAttributeForTests(self):
+    def testUsesFirstAttributeForTests(self):
         self.run_generate()
         test_template = self.readfile('test', 'blog_post_test.js')
         self.assert_("to_test(create_blog_post({title: 'test_title'})" in test_template)
         self.assert_("{xpath: \"//p[@class='title']\", validator: 'Title: test_title'}" in test_template)
     
+    def testGeneratesAppUrl(self):
+        self.generator.cli = self.FakeCli(True)
+        self.writefile('{"env": {"default": {"name": "blog"}}}', '.couchapprc')
+        self.generator.ui.updateconfig(self.appdir)
+        self.run_generate()
+        test_template = self.readfile('test', 'blog_post_test.js')
+        self.assert_("var app_url = 'http://localhost:5984/blog_test/_design/blog/'" in test_template)
+    
     def testGeneratesCouchapprc(self):
+        self.generator.cli = self.FakeCli(True)
+        self.writefile('{"env": {"default": {"name": "blog"}}}', '.couchapprc')
+        self.generator.ui.updateconfig(self.appdir)
         self.run_generate()
         couchapprc_template = self.readfile('.couchapprc')
-        self.assert_("http://localhost:5984/blog_post_test/" in couchapprc_template)
+        self.assert_("http://localhost:5984/blog_test/" in couchapprc_template)
 
     class FakeCli(object):
         def __init__(self, ask_return_value):

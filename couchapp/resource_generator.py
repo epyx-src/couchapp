@@ -26,8 +26,9 @@ from couchappext.inflector.Inflector import Inflector
 class ResourceGenerator(object):
     template_dir = ''
     
-    def __init__(self, _template_dir):
+    def __init__(self, _template_dir, ui):
         self.cli = Cli(sys.stdin, sys.stdout)
+        self.ui = ui
         self.inflector = Inflector()
         pystache.Template.ctag = '%>'
         pystache.Template.otag = '<%'
@@ -54,7 +55,7 @@ class ResourceGenerator(object):
                 self.process_directory(path, in_app_path)
             else:
                 self.process_file(template_path, view, path, in_app_path)
-
+    
     def templates(self):
         """ Fetch all the available templates from sub-directories recursively """
         return glob.glob(os.path.join(self.template_dir, '*', '*')) + \
@@ -78,7 +79,8 @@ class ResourceGenerator(object):
         view = {
             'plural_name': plural_name, 'singular_name': name,
             'plural_label': self.inflector.titleize(plural_name),
-            'singular_label': self.inflector.titleize(name)
+            'singular_label': self.inflector.titleize(name),
+            'app_name': self.ui.get_app_name(None, None)
         }
         attributes_view = map(self.create_attribute, attributes.split(','))
         for attribute in attributes_view:

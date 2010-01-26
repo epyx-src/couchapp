@@ -1,7 +1,7 @@
 {
   "env": {
     "test": {
-      "db": "http://localhost:5984/<%singular_name%>_test/"
+      "db": "http://localhost:5984/<%app_name%>_test/"
     }
   }
 }
