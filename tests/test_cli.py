@@ -69,7 +69,7 @@ class CliTestCase(unittest.TestCase):
         self._make_testapp(self.tempdir)
         (child_stdin, child_stdout, child_stderr) = popen3("%s generate resource blog_post title,author,body" % self.cmd)
         self.assert_(os.path.isfile(os.path.join(self.tempdir, '_attachments', 'blog_posts', 'new.html')) == True)
-    
+        
     def testPush(self):
         self._make_testapp()
         (child_stdin, child_stdout, child_stderr) = popen3("%s push -v my-app couchapp-test" % self.cmd)

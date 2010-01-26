@@ -27,6 +27,7 @@ class ResourceGenerator(object):
     template_dir = ''
     
     def __init__(self, _template_dir):
+        self.cli = Cli(sys.stdin, sys.stdout)
         pystache.Template.ctag = '%>'
         pystache.Template.otag = '<%'
         self.template_dir = _template_dir
@@ -45,7 +46,7 @@ class ResourceGenerator(object):
             in_app_path_template = template_path.replace(self.template_dir + '/', '')
             in_app_path = pystache.render(in_app_path_template, view)
             if os.path.isdir(template_path):
-                self.mkdir_f(os.path.join(path, in_app_path))
+                self.process_directory(path, in_app_path)
             else:
                 self.process_file(template_path, view, path, in_app_path)
 
@@ -60,7 +61,11 @@ class ResourceGenerator(object):
         template = self.read_file(template_path)
         contents = pystache.render(template, view)
         self.mkdir_f(os.path.join(path, os.path.dirname(in_app_path)))
-        self.write_file(os.path.join(path, in_app_path), contents)
+        if os.path.exists(os.path.join(path, in_app_path)) and not(self.cli.ask("really overwrite %s?" % in_app_path)):
+            self.cli.tell("skipping %s." % in_app_path)
+        else:
+            self.cli.tell("creating %s." % in_app_path)
+            self.write_file(os.path.join(path, in_app_path), contents)
     
     def prepare_view(self, name, attributes):
         """ Create a hash that enables us to render the mustache templates """
@@ -91,7 +96,14 @@ class ResourceGenerator(object):
             'label': attribute.capitalize(),
             'class': attribute
         }
-
+        
+    def process_directory(self, path, in_app_path):
+        if not os.path.exists(os.path.join(path, in_app_path)):
+            self.cli.tell("creating %s." % in_app_path)
+            self.mkdir_f(os.path.join(path, in_app_path))
+        else:
+            self.cli.tell("skipping %s. exists." % in_app_path)
+    
     def mkdir_f(self, path):
         if not os.path.exists(path):
             os.makedirs(path)
@@ -107,3 +119,20 @@ class ResourceGenerator(object):
         f.write(contents)
         f.close()
         
+class Cli(object):
+    def __init__(self, _in, _out):
+        self.inIO = _in
+        self.outIO = _out
+        
+    def ask(self, question):
+        self.outIO.write(question + " [y/n]: ")
+        answer = self.inIO.readline()
+        if answer == "y\n":
+            return True
+        elif answer == "n\n":
+            return False
+        else:
+            self.ask(question)
+    
+    def tell(self, statement):
+        self.outIO.write(statement + "\n")
