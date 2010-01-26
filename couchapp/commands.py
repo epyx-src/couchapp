@@ -340,8 +340,9 @@ table = {
         "[OPTION]... SOURCE DEST"),
     "generate":
         (generate,
-        [('', 'template', '', "template name")],
-        "[OPTION]... [app|view,list,show,filter,function,vendor] [COUCHAPPDIR] NAME"),
+        [('', 'template', '', "template name"),
+         ('', 'attributes', '', "comma separated attributes of a resource, e.g. title,author")],
+        "[OPTION]... [app|view,list,show,filter,function,resource,vendor] [COUCHAPPDIR] NAME"),
     "vendor":
         (vendor,
         [("f", 'force', False, "force install or update")],

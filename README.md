@@ -29,7 +29,7 @@ If this gives you trouble, see the INSTALLING file for more options.
 
 Once you run `couchapp generate relax && cd relax`, you're ready to get started. Views are found in the `views` directory, attachments are stored in the `_attachments` directory, forms functions are stored in `list` and `show`, and the generation script drops in additional explanatory files.
 
-You can generate the necessary updates/lists/shows to CRUD a RESTful resource easily with `couchapp generate resource blog_post title,author,body`
+You can generate the necessary updates/lists/shows to CRUD a RESTful resource easily with `couchapp generate --attributes title,author,body resource [<path to my couchapp>] blog_post`
 
 
 ## There's more to Couch than this

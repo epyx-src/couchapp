@@ -35,6 +35,11 @@ class GenerateResourceTestCase(unittest.TestCase):
         
     def tearDown(self):
         deltree(self.appdir)
+    
+    def testFailsIfNotAttributesGiven(self):
+        self.generator.generate(self.appdir, 'blog_post', {'attributes': ''})
+        self.assert_(os.path.isdir(os.path.join(self.appdir, 'views', 'blog_posts')) == False)
+        self.assert_(self.generator.cli.outIO.getvalue() == 'No attributes given. Please add --attributes att1,att2...\n')
 
     def testGeneratesFilesWithPluralNames(self):
         self.run_generate()

@@ -40,6 +40,10 @@ class ResourceGenerator(object):
             :attr options: must contain the attributes for the resource as a string, 
                         separated by commas, e.g. {'attributes': 'title,author,body'}
         """
+        if options['attributes'] == '':
+            self.cli.tell('No attributes given. Please add --attributes att1,att2...')
+            return
+            
         view = self.prepare_view(name, options['attributes'])
 
         for template_path in self.templates():

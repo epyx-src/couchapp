@@ -253,8 +253,7 @@ def generate(ui, path, kind, name, **opts):
         generator.generate_app(ui, path, template=opts.get("template"), 
                         create=opts.get('create', False))
     elif kind == "resource":
-        opts['attributes'] = name.strip()
-        generator.generate_resource(ui, os.getcwd(), path.strip(), opts)
+        generator.generate_resource(ui, path, name, opts)
     else:
         if name is None:
             raise AppError("Can't generate %s function, name is missing" % kind)

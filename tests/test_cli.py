@@ -67,7 +67,7 @@ class CliTestCase(unittest.TestCase):
     
     def testGenerateResource(self):
         self._make_testapp(self.tempdir)
-        (child_stdin, child_stdout, child_stderr) = popen3("%s generate resource blog_post title,author,body" % self.cmd)
+        (child_stdin, child_stdout, child_stderr) = popen3("%s generate --attributes title,author,body resource . blog_post" % self.cmd)
         self.assert_(os.path.isfile(os.path.join(self.tempdir, '_attachments', 'blog_posts', 'new.html')) == True)
         
     def testPush(self):
