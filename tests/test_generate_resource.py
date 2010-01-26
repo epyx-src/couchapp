@@ -10,6 +10,7 @@ import shutil
 import sys
 import unittest
 import StringIO
+import json
 
 sys.path.insert(0, '..')
 
@@ -40,7 +41,7 @@ class GenerateResourceTestCase(unittest.TestCase):
         self.generator.generate(self.appdir, 'blog_post', {'attributes': ''})
         self.assert_(os.path.isdir(os.path.join(self.appdir, 'views', 'blog_posts')) == False)
         self.assert_(self.generator.cli.outIO.getvalue() == 'No attributes given. Please add --attributes att1,att2...\n')
-
+    
     def testGeneratesFilesWithPluralNames(self):
         self.run_generate()
         list_file = self.readfile('lists', 'blog_posts.js')
@@ -104,41 +105,38 @@ class GenerateResourceTestCase(unittest.TestCase):
         self.run_generate()
         couchapprc_template = self.readfile('.couchapprc')
         self.assert_("http://localhost:5984/blog_test/" in couchapprc_template)
-
-    class FakeCli(object):
-        def __init__(self, ask_return_value):
-            self.ask_return_value = ask_return_value
-            
-        def ask(self, question):
-            self._asked = question
-            return self.ask_return_value
-        
-        def asked(self):
-            return self._asked
-
-        def tell(self, statement):
-            pass
-
+    
+    def testExtendsCouchapprc(self):
+        self.generator.cli = self.FakeCli(True)
+        self.writefile('{"env": {"default": {"name": "blog"}}}', '.couchapprc')
+        self.generator.ui.updateconfig(self.appdir)
+        self.run_generate()
+        couchapprc = json.loads(self.readfile('.couchapprc'))
+        self.assert_("blog" in couchapprc['env']['default']['name'])
+    
     def testAsksBeforeOverwritingFiles(self):
         cli = self.FakeCli(True)
         self.generator.cli = cli
-        self.writefile('my fake content', '.couchapprc')
+        os.makedirs(os.path.join(self.appdir, 'vendor'))
+        self.writefile('my fake content', 'vendor', 'mustache.js')
         self.run_generate()
-        self.assert_(cli.asked() == 'really overwrite .couchapprc?')
+        self.assert_(cli.asked() == 'really overwrite vendor/mustache.js?')
     
     def testDoesNotOverwriteIfAnswerIsNo(self):
         cli = self.FakeCli(False)
         self.generator.cli = cli
-        self.writefile('my fake content', '.couchapprc')
+        os.makedirs(os.path.join(self.appdir, 'vendor'))
+        self.writefile('my fake content', 'vendor', 'mustache.js')
         self.run_generate()
-        self.assert_('my fake content' in self.readfile('.couchapprc'))
+        self.assert_('my fake content' in self.readfile('vendor', 'mustache.js'))
         
     def testOverwritesIfAnswerIsYes(self):
         cli = self.FakeCli(True)
         self.generator.cli = cli
-        self.writefile('my fake content', '.couchapprc')
+        os.makedirs(os.path.join(self.appdir, 'vendor'))
+        self.writefile('my fake content', 'vendor', 'mustache.js')
         self.run_generate()
-        self.assert_('my fake content' != self.readfile('.couchapprc'))
+        self.assert_('my fake content' != self.readfile('vendor', 'mustache.js'))
         
     def readfile(self, *in_app_path):
         in_app_path_string = os.path.join(*in_app_path)
@@ -157,6 +155,21 @@ class GenerateResourceTestCase(unittest.TestCase):
         
     def run_generate(self):
         self.generator.generate(self.appdir, 'blog_post', {'attributes': 'title,author,body'})
+    
+    class FakeCli(object):
+        def __init__(self, ask_return_value):
+            self.ask_return_value = ask_return_value
+
+        def ask(self, question):
+            self._asked = question
+            return self.ask_return_value
+
+        def asked(self):
+            return self._asked
+
+        def tell(self, statement):
+            pass
+    
 
 class CliTestCase(unittest.TestCase):
     class FakeInput(object):

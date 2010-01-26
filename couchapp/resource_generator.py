@@ -19,6 +19,7 @@ import glob
 import re
 import os
 import sys
+import json
 
 from couchappext import pystache
 from couchappext.inflector.Inflector import Inflector
@@ -55,12 +56,12 @@ class ResourceGenerator(object):
                 self.process_directory(path, in_app_path)
             else:
                 self.process_file(template_path, view, path, in_app_path)
+        self.generate_apprc(path)
     
     def templates(self):
         """ Fetch all the available templates from sub-directories recursively """
         return glob.glob(os.path.join(self.template_dir, '*', '*')) + \
-            glob.glob(os.path.join(self.template_dir, '*', '*', '*')) + \
-            [os.path.join(self.template_dir, '.couchapprc')]
+            glob.glob(os.path.join(self.template_dir, '*', '*', '*'))
 
     def process_file(self, template_path, view, path, in_app_path):
         """ Update the contents of template_path with the given template and view """
@@ -80,7 +81,7 @@ class ResourceGenerator(object):
             'plural_name': plural_name, 'singular_name': name,
             'plural_label': self.inflector.titleize(plural_name),
             'singular_label': self.inflector.titleize(name),
-            'app_name': self.ui.get_app_name(None, None)
+            'app_name': self.app_name()
         }
         attributes_view = map(self.create_attribute, attributes.split(','))
         for attribute in attributes_view:
@@ -120,6 +121,18 @@ class ResourceGenerator(object):
         f = open(path, 'w')
         f.write(contents)
         f.close()
+        
+    def generate_apprc(self, app_path):
+        rcpath = os.path.join(app_path, '.couchapprc')
+        if os.path.isfile(rcpath):
+            conf = json.loads(self.read_file(rcpath))
+        else:
+            conf = {'env': {}}
+        conf['env']['test'] = {'db': 'http://localhost:5984/%s_test/' % self.app_name()}
+        self.write_file(rcpath, json.dumps(conf))
+
+    def app_name(self):
+        return self.ui.get_app_name(None, None)
         
 class Cli(object):
     def __init__(self, _in, _out):
