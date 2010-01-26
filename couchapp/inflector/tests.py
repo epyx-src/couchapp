@@ -3,7 +3,7 @@
 # Copyright (c) 2006 Bermi Ferrer Martinez
 
 import unittest
-from Inflector import Inflector, English
+from couchapp.Inflector import Inflector, English
 
 class EnglishInflectorTestCase(unittest.TestCase):
     singular_to_plural = {

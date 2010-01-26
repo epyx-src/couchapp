@@ -21,27 +21,30 @@ import os
 import sys
 import json
 
-from couchappext import pystache
-from couchappext.inflector.Inflector import Inflector
+from couchapp import pystache
+from couchapp.inflector.Inflector import Inflector
 
 class ResourceGenerator(object):
     template_dir = ''
     
-    def __init__(self, _template_dir, ui):
+    def __init__(self, template_dir, ui):
         self.cli = Cli(sys.stdin, sys.stdout)
         self.ui = ui
         self.inflector = Inflector()
         pystache.Template.ctag = '%>'
         pystache.Template.otag = '<%'
-        self.template_dir = _template_dir
+        self.template_dir = template_dir
         
     def generate(self, path, name, options):
-        """ Generates a complete CRUD app for a given resource name.
+        """ Generates a complete CRUD app for a given 
+        resource name.
 
-            :attr path: path to the application        
-            :attr name: singular name with underscore of the resource to create, e.g. blog_post
-            :attr options: must contain the attributes for the resource as a string, 
-                        separated by commas, e.g. {'attributes': 'title,author,body'}
+        :attr path: path to the application        
+        :attr name: singular name with underscore of the resource 
+            to create, e.g. blog_post
+        :attr options: must contain the attributes for the resource 
+            as a string, separated by commas, e.g. 
+            {'attributes': 'title,author,body'}
         """
         if options['attributes'] == '':
             self.cli.tell('No attributes given. Please add --attributes att1,att2...')
@@ -50,7 +53,8 @@ class ResourceGenerator(object):
         view = self.prepare_view(name, options['attributes'])
 
         for template_path in self.templates():
-            in_app_path_template = template_path.replace(self.template_dir + '/', '')
+            in_app_path_template = template_path.replace(
+                            self.template_dir + '/', '')
             in_app_path = pystache.render(in_app_path_template, view)
             if os.path.isdir(template_path):
                 self.process_directory(path, in_app_path)
@@ -59,23 +63,32 @@ class ResourceGenerator(object):
         self.generate_apprc(path)
     
     def templates(self):
-        """ Fetch all the available templates from sub-directories recursively """
+        """ Fetch all the available templates 
+        from sub-directories recursively """
         return glob.glob(os.path.join(self.template_dir, '*', '*')) + \
             glob.glob(os.path.join(self.template_dir, '*', '*', '*'))
 
-    def process_file(self, template_path, view, path, in_app_path):
-        """ Update the contents of template_path with the given template and view """
-        template = self.read_file(template_path)
+    def process_file(self, template_path, view, path, 
+                in_app_path):
+        """ Update the contents of template_path 
+        with the given template and view """
+        template = self.ui.read(template_path)
         contents = pystache.render(template, view)
-        self.mkdir_f(os.path.join(path, os.path.dirname(in_app_path)))
-        if os.path.exists(os.path.join(path, in_app_path)) and not(self.cli.ask("really overwrite %s?" % in_app_path)):
+        dpath = os.path.join(path, os.path.dirname(in_app_path)
+        if not os.path.exists(dpath):
+            os.makedirs(dpath)
+
+        fpath = os.path.join(path, in_app_path)
+        if os.path.exists(fpath) and not \
+                self.cli.ask("really overwrite %s?" % in_app_path):
             self.cli.tell("skipping %s." % in_app_path)
         else:
             self.cli.tell("creating %s." % in_app_path)
-            self.write_file(os.path.join(path, in_app_path), contents)
+            self.ui.write(fpath, contents)
     
     def prepare_view(self, name, attributes):
-        """ Create a hash that enables us to render the mustache templates """
+        """ Create a hash that enables us to 
+        render the mustache templates """
         plural_name = self.inflector.pluralize(name)
         view = {
             'plural_name': plural_name, 'singular_name': name,
@@ -101,36 +114,26 @@ class ResourceGenerator(object):
         }
         
     def process_directory(self, path, in_app_path):
-        if not os.path.exists(os.path.join(path, in_app_path)):
+        dest = os.path.join(path, in_app_path)
+        if os.path.exists(dest):
             self.cli.tell("creating %s." % in_app_path)
-            self.mkdir_f(os.path.join(path, in_app_path))
+            os.makedirs(os.path.join(path, in_app_path))
+            print "creating"
         else:
             self.cli.tell("skipping %s. exists." % in_app_path)
-    
-    def mkdir_f(self, path):
-        if not os.path.exists(path):
-            os.makedirs(path)
 
-    def read_file(self, path):
-        f = open(path, 'r')
-        contents = f.read()
-        f.close()
-        return contents
-
-    def write_file(self, path, contents):
-        f = open(path, 'w')
-        f.write(contents)
-        f.close()
-        
     def generate_apprc(self, app_path):
         rcpath = os.path.join(app_path, '.couchapprc')
         if os.path.isfile(rcpath):
-            conf = json.loads(self.read_file(rcpath))
+            conf = self.ui.read_json(rcpath)
         else:
             conf = {'env': {}}
-        if not('env' in conf and 'test' in conf['env'] and 'db' in conf['env']['test']):
-            conf['env']['test'] = {'db': 'http://localhost:5984/%s_test/' % self.app_name()}
-        self.write_file(rcpath, json.dumps(conf))
+        
+        if conf.get('env') == None or 'db' not in conf['env'].get('test', {}):
+             conf['env']['test'] = { 
+                'db': 'http://localhost:5984/%s_test/' % self.app_name()
+             }
+        self.ui.write_json(rcpath, conf)
 
     def app_name(self):
         return self.ui.get_app_name(None, None)

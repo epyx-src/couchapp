@@ -31,15 +31,21 @@ class GenerateResourceTestCase(unittest.TestCase):
         self.ui = ui = UI()            
         self.appdir = _tempdir()
         os.makedirs(self.appdir)
-        self.generator = ResourceGenerator(os.path.join('..', 'templates', 'resource'), ui)
+        path = os.path.normpath(os.path.join(os.getcwd(), 
+                                '..', 'templates', 'resource'))
+        self.generator = ResourceGenerator(path, ui)
         self.generator.cli.outIO = StringIO.StringIO()
+        self.startdir = os.getcwd()
         
     def tearDown(self):
         deltree(self.appdir)
-    
+        os.chdir(self.startdir)
+        
     def testFailsIfNotAttributesGiven(self):
-        self.generator.generate(self.appdir, 'blog_post', {'attributes': ''})
-        self.assert_(os.path.isdir(os.path.join(self.appdir, 'views', 'blog_posts')) == False)
+        self.generator.generate(self.appdir, 
+                            'blog_post', {'attributes': ''})
+        self.assert_(os.path.isdir(os.path.join(self.appdir, 
+                'views', 'blog_posts')) == False)
         self.assert_(self.generator.cli.outIO.getvalue() == 'No attributes given. Please add --attributes att1,att2...\n')
     
     def testGeneratesFilesWithPluralNames(self):
@@ -62,7 +68,8 @@ class GenerateResourceTestCase(unittest.TestCase):
         
     def testCreatesListOfAttributes(self):
         self.run_generate()
-        show_template = readfile(self.appdir, 'templates', 'blog_posts', 'show.mustache')
+        show_template = readfile(self.appdir, 'templates', 
+                            'blog_posts', 'show.mustache')
         self.assert_("{{#blog_post}}" in show_template)
         self.assert_('<input type="hidden" name="blog_post[_deleted]" value="true"/>' in show_template)
         self.assert_("<p class=\"title\">Title: {{title}}</p>" in show_template)
@@ -147,11 +154,13 @@ class GenerateResourceTestCase(unittest.TestCase):
         self.assert_('my fake content' != readfile(self.appdir, 'vendor', 'mustache.js'))
                 
     def run_generate(self):
-        self.generator.generate(self.appdir, 'blog_post', {'attributes': 'title,author,body'})
+        self.generator.generate(self.appdir, 
+                'blog_post', {'attributes': 'title,author,body'})
     
     class FakeCli(object):
         def __init__(self, ask_return_value):
             self.ask_return_value = ask_return_value
+            self._asked = ""
 
         def ask(self, question):
             self._asked = question

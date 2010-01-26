@@ -29,7 +29,8 @@ class CliTestCase(unittest.TestCase):
     
     def setUp(self):
         self.ui = ui = UI()
-        self.db = Database(ui, 'http://127.0.0.1:5984/couchapp-test', create=True)
+        self.db = Database(ui, 'http://127.0.0.1:5984/couchapp-test', 
+                        create=True)
             
         self.couchapp_bin = os.path.join(os.path.dirname(__file__), 'couchapp')
         self.tempdir = _tempdir()

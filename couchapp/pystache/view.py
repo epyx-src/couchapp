@@ -1,4 +1,4 @@
-from couchappext.pystache import Template
+from couchapp.pystache import Template
 import os.path
 import re
 
