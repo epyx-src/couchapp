@@ -1,0 +1,571 @@
+[('.', ['LICENSE', 'MANIFEST.in', 'NOTICE', 'README.md', 'THANKS.txt']), ('couchapp/templates', []), ('couchapp/templates/app', ['templates/app/couchapp.json', 'templates/app/language', 'templates/app/README.md']), ('couchapp/templates/app/_attachments', ['templates/app/_attachments/index.html']), ('couchapp/templates/app/_attachments/style', ['templates/app/_attachments/style/main.css']), ('couchapp/templates/app/evently', []), ('couchapp/templates/app/evently/items', []), ('couchapp/templates/app/evently/items/_changes', ['templates/app/evently/items/_changes/data.js', 'templates/app/evently/items/_changes/mustache.html', 'templates/app/evently/items/_changes/query.json']), ('couchapp/templates/app/evently/profile', []), ('couchapp/templates/app/evently/profile/profileReady', ['templates/app/evently/profile/profileReady/mustache.html']), ('couchapp/templates/app/evently/profile/profileReady/selectors', []), ('couchapp/templates/app/evently/profile/profileReady/selectors/form', ['templates/app/evently/profile/profileReady/selectors/form/submit.js']), ('couchapp/templates/app/views', []), ('couchapp/templates/app/views/recent-items', ['templates/app/views/recent-items/map.js']), ('couchapp/templates/functions', ['templates/functions/filter.js', 'templates/functions/list.js', 'templates/functions/map.js', 'templates/functions/reduce.js', 'templates/functions/show.js', 'templates/functions/spatial.js', 'templates/functions/update.js', 'templates/functions/validate_doc_update.js']), ('couchapp/vendor', ['vendor/metadata.json']), ('couchapp/vendor/_attachments', ['vendor/_attachments/jquery.couch.app.js', 'vendor/_attachments/jquery.couch.app.util.js', 'vendor/_attachments/jquery.evently.js', 'vendor/_attachments/jquery.mustache.js', 'vendor/_attachments/jquery.pathbinder.js', 'vendor/_attachments/loader.js']), ('couchapp/vendor/evently', ['vendor/evently/README.md']), ('couchapp/vendor/evently/account', ['vendor/evently/account/_init.js', 'vendor/evently/account/doLogin.js', 'vendor/evently/account/doLogout.js', 'vendor/evently/account/doSignup.js']), ('couchapp/vendor/evently/account/adminParty', ['vendor/evently/account/adminParty/mustache.html']), ('couchapp/vendor/evently/account/loggedIn', ['vendor/evently/account/loggedIn/after.js', 'vendor/evently/account/loggedIn/data.js', 'vendor/evently/account/loggedIn/mustache.html', 'vendor/evently/account/loggedIn/selectors.json']), ('couchapp/vendor/evently/account/loggedOut', ['vendor/evently/account/loggedOut/mustache.html', 'vendor/evently/account/loggedOut/selectors.json']), ('couchapp/vendor/evently/account/loginForm', ['vendor/evently/account/loginForm/after.js', 'vendor/evently/account/loginForm/mustache.html']), ('couchapp/vendor/evently/account/loginForm/selectors', ['vendor/evently/account/loginForm/selectors/a[href=#signup].json']), ('couchapp/vendor/evently/account/loginForm/selectors/form', ['vendor/evently/account/loginForm/selectors/form/submit.js']), ('couchapp/vendor/evently/account/signupForm', ['vendor/evently/account/signupForm/after.js', 'vendor/evently/account/signupForm/mustache.html']), ('couchapp/vendor/evently/account/signupForm/selectors', ['vendor/evently/account/signupForm/selectors/a[href=#login].json']), ('couchapp/vendor/evently/account/signupForm/selectors/form', ['vendor/evently/account/signupForm/selectors/form/submit.js']), ('couchapp/vendor/evently/profile', ['vendor/evently/profile/loggedIn.js']), ('couchapp/vendor/evently/profile/loggedOut', ['vendor/evently/profile/loggedOut/after.js', 'vendor/evently/profile/loggedOut/mustache.html']), ('couchapp/vendor/evently/profile/noProfile', ['vendor/evently/profile/noProfile/data.js', 'vendor/evently/profile/noProfile/mustache.html']), ('couchapp/vendor/evently/profile/noProfile/selectors', []), ('couchapp/vendor/evently/profile/noProfile/selectors/form', ['vendor/evently/profile/noProfile/selectors/form/submit.js']), ('couchapp/vendor/evently/profile/profileReady', ['vendor/evently/profile/profileReady/after.js', 'vendor/evently/profile/profileReady/data.js', 'vendor/evently/profile/profileReady/mustache.html']), ('couchapp/vendor/lib', ['vendor/lib/atom.js', 'vendor/lib/cache.js', 'vendor/lib/code.js', 'vendor/lib/docform.js', 'vendor/lib/linkup.js', 'vendor/lib/list.js', 'vendor/lib/markdown.js', 'vendor/lib/md5.js', 'vendor/lib/mustache.js', 'vendor/lib/path.js', 'vendor/lib/redirect.js', 'vendor/lib/utils.js', 'vendor/lib/validate.js'])]
+running py2app
+running build_py
+creating build
+creating build/bdist.macosx-10.4-x86_64
+creating build/bdist.macosx-10.4-x86_64/lib
+creating build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/__init__.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/client.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/clone_app.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/commands.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/config.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/dispatch.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/errors.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/generator.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/localdoc.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/macros.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+copying couchapp/util.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp
+creating build/bdist.macosx-10.4-x86_64/lib/couchapp/ext
+copying couchapp/ext/__init__.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/ext
+copying couchapp/ext/autopush.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/ext
+creating build/bdist.macosx-10.4-x86_64/lib/couchapp/hooks
+copying couchapp/hooks/__init__.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/hooks
+creating build/bdist.macosx-10.4-x86_64/lib/couchapp/hooks/compress
+copying couchapp/hooks/compress/__init__.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/hooks/compress
+copying couchapp/hooks/compress/compress_css.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/hooks/compress
+copying couchapp/hooks/compress/jsmin.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/hooks/compress
+copying couchapp/hooks/compress/yuicompressor.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/hooks/compress
+creating build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors
+copying couchapp/vendors/__init__.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors
+copying couchapp/vendors/base.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors
+creating build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors/backends
+copying couchapp/vendors/backends/__init__.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors/backends
+copying couchapp/vendors/backends/couchdb.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors/backends
+copying couchapp/vendors/backends/git.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors/backends
+copying couchapp/vendors/backends/hg.py -> build/bdist.macosx-10.4-x86_64/lib/couchapp/vendors/backends
+running build_scripts
+creating build/bdist.macosx-10.4-x86_64/scripts-2.7
+copying resources/scripts/couchapp -> build/bdist.macosx-10.4-x86_64/scripts-2.7
+creating /Users/benoitc/work/couchapps/couchapp/build/bdist.macosx-10.4-x86_64/python2.7-standalone
+creating /Users/benoitc/work/couchapps/couchapp/build/bdist.macosx-10.4-x86_64/python2.7-standalone/app
+creating /Users/benoitc/work/couchapps/couchapp/build/bdist.macosx-10.4-x86_64/python2.7-standalone/app/collect
+creating /Users/benoitc/work/couchapps/couchapp/build/bdist.macosx-10.4-x86_64/python2.7-standalone/app/temp
+creating /Users/benoitc/work/couchapps/couchapp/dist
+creating build/bdist.macosx-10.4-x86_64/python2.7-standalone/app/lib-dynload
+creating build/bdist.macosx-10.4-x86_64/python2.7-standalone/app/Frameworks
+*** using recipe: virtualenv ***
+*** filtering dependencies ***
+472 total
+54 filtered
+5 orphaned
+418 remaining
+*** create binaries ***
+*** byte compile python files ***
+writing byte-compilation script '/var/folders/Ah/AhNlRorIFkuPZFgG6L3dCE+++TI/-Tmp-/tmpQd5NtP.py'
+/usr/local/Cellar/python/2.7/bin/python -OO /var/folders/Ah/AhNlRorIFkuPZFgG6L3dCE+++TI/-Tmp-/tmpQd5NtP.py
+byte-compiling /Users/benoitc/work/couchapps/couchapp/Couchapp.py to Couchapp.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/__init__.py to couchapp/__init__.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/client.py to couchapp/client.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/clone_app.py to couchapp/clone_app.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/commands.py to couchapp/commands.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/config.py to couchapp/config.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/dispatch.py to couchapp/dispatch.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/errors.py to couchapp/errors.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/ext/__init__.py to couchapp/ext/__init__.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/ext/autopush.py to couchapp/ext/autopush.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/generator.py to couchapp/generator.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/hooks/__init__.py to couchapp/hooks/__init__.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/hooks/compress/__init__.py to couchapp/hooks/compress/__init__.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/hooks/compress/compress_css.py to couchapp/hooks/compress/compress_css.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/hooks/compress/jsmin.py to couchapp/hooks/compress/jsmin.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/hooks/compress/yuicompressor.py to couchapp/hooks/compress/yuicompressor.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/localdoc.py to couchapp/localdoc.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/macros.py to couchapp/macros.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/util.py to couchapp/util.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/vendors/__init__.py to couchapp/vendors/__init__.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/vendors/backends/__init__.py to couchapp/vendors/backends/__init__.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/vendors/backends/couchdb.py to couchapp/vendors/backends/couchdb.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/vendors/backends/git.py to couchapp/vendors/backends/git.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/vendors/backends/hg.py to couchapp/vendors/backends/hg.pyo
+byte-compiling /Users/benoitc/work/couchapps/couchapp/couchapp/vendors/base.py to couchapp/vendors/base.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/StringIO.py to StringIO.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/UserDict.py to UserDict.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/__future__.py to __future__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/_abcoll.py to _abcoll.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/_strptime.py to _strptime.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/_threading_local.py to _threading_local.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/_weakrefset.py to _weakrefset.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/abc.py to abc.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/atexit.py to atexit.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/base64.py to base64.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/bdb.py to bdb.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/bisect.py to bisect.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/calendar.py to calendar.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/cgi.py to cgi.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/cmd.py to cmd.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/codecs.py to codecs.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/collections.py to collections.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/copy.py to copy.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/copy_reg.py to copy_reg.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ctypes/__init__.py to ctypes/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ctypes/_endian.py to ctypes/_endian.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ctypes/macholib/__init__.py to ctypes/macholib/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ctypes/macholib/dyld.py to ctypes/macholib/dyld.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ctypes/macholib/dylib.py to ctypes/macholib/dylib.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ctypes/macholib/framework.py to ctypes/macholib/framework.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ctypes/util.py to ctypes/util.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/difflib.py to difflib.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/dis.py to dis.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/__init__.py to distutils/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/dep_util.py to distutils/dep_util.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/errors.py to distutils/errors.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/log.py to distutils/log.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/spawn.py to distutils/spawn.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/sysconfig.py to distutils/sysconfig.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/text_file.py to distutils/text_file.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/distutils/util.py to distutils/util.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/doctest.py to doctest.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/dummy_thread.py to dummy_thread.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/__init__.py to email/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/_parseaddr.py to email/_parseaddr.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/base64mime.py to email/base64mime.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/charset.py to email/charset.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/encoders.py to email/encoders.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/errors.py to email/errors.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/feedparser.py to email/feedparser.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/generator.py to email/generator.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/header.py to email/header.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/iterators.py to email/iterators.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/message.py to email/message.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/mime/__init__.py to email/mime/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/parser.py to email/parser.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/quoprimime.py to email/quoprimime.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/email/utils.py to email/utils.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/__init__.py to encodings/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/aliases.py to encodings/aliases.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/ascii.py to encodings/ascii.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/base64_codec.py to encodings/base64_codec.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/big5.py to encodings/big5.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/big5hkscs.py to encodings/big5hkscs.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/bz2_codec.py to encodings/bz2_codec.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/charmap.py to encodings/charmap.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp037.py to encodings/cp037.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1006.py to encodings/cp1006.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1026.py to encodings/cp1026.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1140.py to encodings/cp1140.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1250.py to encodings/cp1250.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1251.py to encodings/cp1251.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1252.py to encodings/cp1252.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1253.py to encodings/cp1253.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1254.py to encodings/cp1254.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1255.py to encodings/cp1255.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1256.py to encodings/cp1256.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1257.py to encodings/cp1257.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp1258.py to encodings/cp1258.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp424.py to encodings/cp424.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp437.py to encodings/cp437.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp500.py to encodings/cp500.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp720.py to encodings/cp720.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp737.py to encodings/cp737.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp775.py to encodings/cp775.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp850.py to encodings/cp850.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp852.py to encodings/cp852.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp855.py to encodings/cp855.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp856.py to encodings/cp856.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp857.py to encodings/cp857.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp858.py to encodings/cp858.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp860.py to encodings/cp860.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp861.py to encodings/cp861.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp862.py to encodings/cp862.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp863.py to encodings/cp863.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp864.py to encodings/cp864.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp865.py to encodings/cp865.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp866.py to encodings/cp866.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp869.py to encodings/cp869.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp874.py to encodings/cp874.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp875.py to encodings/cp875.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp932.py to encodings/cp932.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp949.py to encodings/cp949.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/cp950.py to encodings/cp950.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/euc_jis_2004.py to encodings/euc_jis_2004.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/euc_jisx0213.py to encodings/euc_jisx0213.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/euc_jp.py to encodings/euc_jp.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/euc_kr.py to encodings/euc_kr.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/gb18030.py to encodings/gb18030.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/gb2312.py to encodings/gb2312.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/gbk.py to encodings/gbk.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/hex_codec.py to encodings/hex_codec.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/hp_roman8.py to encodings/hp_roman8.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/hz.py to encodings/hz.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/idna.py to encodings/idna.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso2022_jp.py to encodings/iso2022_jp.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso2022_jp_1.py to encodings/iso2022_jp_1.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso2022_jp_2.py to encodings/iso2022_jp_2.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso2022_jp_2004.py to encodings/iso2022_jp_2004.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso2022_jp_3.py to encodings/iso2022_jp_3.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso2022_jp_ext.py to encodings/iso2022_jp_ext.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso2022_kr.py to encodings/iso2022_kr.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_1.py to encodings/iso8859_1.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_10.py to encodings/iso8859_10.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_11.py to encodings/iso8859_11.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_13.py to encodings/iso8859_13.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_14.py to encodings/iso8859_14.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_15.py to encodings/iso8859_15.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_16.py to encodings/iso8859_16.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_2.py to encodings/iso8859_2.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_3.py to encodings/iso8859_3.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_4.py to encodings/iso8859_4.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_5.py to encodings/iso8859_5.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_6.py to encodings/iso8859_6.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_7.py to encodings/iso8859_7.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_8.py to encodings/iso8859_8.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/iso8859_9.py to encodings/iso8859_9.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/johab.py to encodings/johab.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/koi8_r.py to encodings/koi8_r.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/koi8_u.py to encodings/koi8_u.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/latin_1.py to encodings/latin_1.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_arabic.py to encodings/mac_arabic.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_centeuro.py to encodings/mac_centeuro.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_croatian.py to encodings/mac_croatian.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_cyrillic.py to encodings/mac_cyrillic.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_farsi.py to encodings/mac_farsi.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_greek.py to encodings/mac_greek.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_iceland.py to encodings/mac_iceland.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_latin2.py to encodings/mac_latin2.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_roman.py to encodings/mac_roman.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_romanian.py to encodings/mac_romanian.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mac_turkish.py to encodings/mac_turkish.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/mbcs.py to encodings/mbcs.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/palmos.py to encodings/palmos.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/ptcp154.py to encodings/ptcp154.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/punycode.py to encodings/punycode.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/quopri_codec.py to encodings/quopri_codec.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/raw_unicode_escape.py to encodings/raw_unicode_escape.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/rot_13.py to encodings/rot_13.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/shift_jis.py to encodings/shift_jis.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/shift_jis_2004.py to encodings/shift_jis_2004.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/shift_jisx0213.py to encodings/shift_jisx0213.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/string_escape.py to encodings/string_escape.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/tis_620.py to encodings/tis_620.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/undefined.py to encodings/undefined.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/unicode_escape.py to encodings/unicode_escape.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/unicode_internal.py to encodings/unicode_internal.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_16.py to encodings/utf_16.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_16_be.py to encodings/utf_16_be.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_16_le.py to encodings/utf_16_le.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_32.py to encodings/utf_32.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_32_be.py to encodings/utf_32_be.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_32_le.py to encodings/utf_32_le.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_7.py to encodings/utf_7.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_8.py to encodings/utf_8.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/utf_8_sig.py to encodings/utf_8_sig.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/uu_codec.py to encodings/uu_codec.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/encodings/zlib_codec.py to encodings/zlib_codec.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/fnmatch.py to fnmatch.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ftplib.py to ftplib.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/functools.py to functools.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/genericpath.py to genericpath.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/getopt.py to getopt.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/getpass.py to getpass.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/gettext.py to gettext.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/glob.py to glob.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/gzip.py to gzip.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/hashlib.py to hashlib.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/heapq.py to heapq.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/hmac.py to hmac.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/httplib.py to httplib.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/inspect.py to inspect.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/io.py to io.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/json/__init__.py to json/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/json/decoder.py to json/decoder.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/json/encoder.py to json/encoder.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/json/scanner.py to json/scanner.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/keyword.py to keyword.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/linecache.py to linecache.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/locale.py to locale.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/logging/__init__.py to logging/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/mimetools.py to mimetools.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/mimetypes.py to mimetypes.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/opcode.py to opcode.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/optparse.py to optparse.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/os.py to os.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/pdb.py to pdb.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/pickle.py to pickle.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/pkgutil.py to pkgutil.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/AE.py to Carbon/AE.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Appearance.py to Carbon/Appearance.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/AppleEvents.py to Carbon/AppleEvents.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/CarbonEvents.py to Carbon/CarbonEvents.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/ControlAccessor.py to Carbon/ControlAccessor.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Controls.py to Carbon/Controls.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Ctl.py to Carbon/Ctl.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Dialogs.py to Carbon/Dialogs.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Dlg.py to Carbon/Dlg.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Dragconst.py to Carbon/Dragconst.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Events.py to Carbon/Events.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Evt.py to Carbon/Evt.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/File.py to Carbon/File.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Files.py to Carbon/Files.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Menu.py to Carbon/Menu.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Qd.py to Carbon/Qd.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/QuickDraw.py to Carbon/QuickDraw.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Res.py to Carbon/Res.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/TextEdit.py to Carbon/TextEdit.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Win.py to Carbon/Win.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/Windows.py to Carbon/Windows.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/Carbon/__init__.py to Carbon/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/EasyDialogs.py to EasyDialogs.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/aepack.py to aepack.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/aetools.py to aetools.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/aetypes.py to aetypes.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/applesingle.py to applesingle.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Containers_and_folders.py to Finder/Containers_and_folders.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Enumerations.py to Finder/Enumerations.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Files.py to Finder/Files.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Finder_Basics.py to Finder/Finder_Basics.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Finder_items.py to Finder/Finder_items.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Legacy_suite.py to Finder/Legacy_suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Standard_Suite.py to Finder/Standard_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Type_Definitions.py to Finder/Type_Definitions.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/Window_classes.py to Finder/Window_classes.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/Finder/__init__.py to Finder/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/AppleScript_Suite.py to StdSuites/AppleScript_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/Macintosh_Connectivity_Clas.py to StdSuites/Macintosh_Connectivity_Clas.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/QuickDraw_Graphics_Suite.py to StdSuites/QuickDraw_Graphics_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/QuickDraw_Graphics_Suppleme.py to StdSuites/QuickDraw_Graphics_Suppleme.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/Required_Suite.py to StdSuites/Required_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/Standard_Suite.py to StdSuites/Standard_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/Table_Suite.py to StdSuites/Table_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/Text_Suite.py to StdSuites/Text_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/Type_Names_Suite.py to StdSuites/Type_Names_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/StdSuites/__init__.py to StdSuites/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/_builtinSuites/__init__.py to _builtinSuites/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/lib-scriptpackages/_builtinSuites/builtin_Suite.py to _builtinSuites/builtin_Suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/macostools.py to macostools.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plat-mac/macresource.py to macresource.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/platform.py to platform.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/plistlib.py to plistlib.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/popen2.py to popen2.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/posixpath.py to posixpath.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/pprint.py to pprint.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/py_compile.py to py_compile.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/quopri.py to quopri.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/random.py to random.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/re.py to re.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/repr.py to repr.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/rfc822.py to rfc822.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/sets.py to sets.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/sha.py to sha.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/shlex.py to shlex.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/shutil.py to shutil.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/distribute-0.6.14-py2.7.egg/pkg_resources.py to pkg_resources.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/py2app-0.5.3-py2.7.egg/py2app/bootstrap/argv_emulation.py to argv_emulation.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/py2app-0.5.3-py2.7.egg/py2app/bootstrap/boot_app.py to boot_app.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/py2app-0.5.3-py2.7.egg/py2app/bootstrap/chdir_resource.py to chdir_resource.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/py2app-0.5.3-py2.7.egg/py2app/bootstrap/disable_linecache.py to disable_linecache.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/socket.py to socket.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/sre.py to sre.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/sre_compile.py to sre_compile.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/sre_constants.py to sre_constants.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/sre_parse.py to sre_parse.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/ssl.py to ssl.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/stat.py to stat.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/string.py to string.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/stringprep.py to stringprep.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/struct.py to struct.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/subprocess.py to subprocess.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/sysconfig.py to sysconfig.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/tarfile.py to tarfile.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/tempfile.py to tempfile.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/textwrap.py to textwrap.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/threading.py to threading.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/token.py to token.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/tokenize.py to tokenize.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/traceback.py to traceback.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/types.py to types.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/__init__.py to unittest/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/case.py to unittest/case.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/loader.py to unittest/loader.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/main.py to unittest/main.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/result.py to unittest/result.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/runner.py to unittest/runner.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/signals.py to unittest/signals.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/suite.py to unittest/suite.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/unittest/util.py to unittest/util.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/urllib.py to urllib.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/urlparse.py to urlparse.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/uu.py to uu.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/uuid.py to uuid.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/warnings.py to warnings.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/weakref.py to weakref.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/webbrowser.py to webbrowser.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/xml/__init__.py to xml/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/xml/parsers/__init__.py to xml/parsers/__init__.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/xml/parsers/expat.py to xml/parsers/expat.pyo
+byte-compiling /usr/local/Cellar/python/2.7/lib/python2.7/zipfile.py to zipfile.pyo
+removing /var/folders/Ah/AhNlRorIFkuPZFgG6L3dCE+++TI/-Tmp-/tmpQd5NtP.py
+*** creating application bundle: Couchapp ***
+copying Couchapp.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/config
+copying /usr/local/Cellar/python/2.7/lib/python2.7/config/Makefile -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/config
+copying /usr/local/Cellar/python/2.7/lib/python2.7/config/Setup -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/config
+copying /usr/local/Cellar/python/2.7/lib/python2.7/config/Setup.local -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/config
+copying /usr/local/Cellar/python/2.7/lib/python2.7/config/Setup.config -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/config
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/include
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/include/python2.7
+copying /usr/local/Cellar/python/2.7/include/python2.7/pyconfig.h -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/include/python2.7
+copying build/bdist.macosx-10.4-x86_64/python2.7-standalone/app/site-packages.zip -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/lib-dynload
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Frameworks
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/__init__.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/__init__.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/request.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/request.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/request.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/response.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/response.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/client/response.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/client
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/__init__.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/base.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/base.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/base.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/eventlet_manager.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/eventlet_manager.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/gevent_manager.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/gevent_manager.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/http_connection.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/http_connection.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/http_connection.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/threaded.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/threaded.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/conn/threaded.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/conn
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/console.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/console.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/ipython_shell.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/ipython_shell.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/webob_api.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/webob_api.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/webob_helper.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/webob_helper.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/wsgi_proxy.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/contrib/wsgi_proxy.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/contrib
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/errors.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/errors.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/errors.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/__init__.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/basicauth.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/basicauth.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/basicauth.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/oauth2.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/oauth2.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/oauth2.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/simpleproxy.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/simpleproxy.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/filters/simpleproxy.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/filters
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/forms.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/forms.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/forms.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/__init__.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/body.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/body.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/body.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/message.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/message.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/message.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/parser.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/parser.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/parser.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/unreader.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/unreader.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/http/unreader.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/http
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/pool
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/pool/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/pool
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/pool/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/pool
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/pool/simple.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/pool
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/pool/simple.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/pool
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/resource.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/resource.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/resource.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/tee.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/tee.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit
+creating /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/__init__.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/__init__.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/__init__.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/misc.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/misc.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/oauth2.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/oauth2.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/oauth2.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/sock.py -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/sock.pyc -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/lib/python2.7/site-packages/restkit/util/sock.pyo -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Resources/lib/python2.7/restkit/util
+copying /usr/local/Cellar/python/2.7/bin/python -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/MacOS
+copying /usr/local/Cellar/python/2.7/lib/libpython2.7.dylib -> /Users/benoitc/work/couchapps/couchapp/dist/Couchapp.app/Contents/Frameworks
+stripping _heapq.so
+stripping _Win.so
+stripping _io.so
+stripping _codecs_tw.so
+stripping _json.so
+stripping _codecs_cn.so
+stripping datetime.so
+stripping python
+stripping select.so
+stripping array.so
+stripping _locale.so
+stripping _Qd.so
+stripping time.so
+stripping strop.so
+stripping _ctypes.so
+stripping MacOS.so
+stripping _Res.so
+stripping _struct.so
+stripping itertools.so
+stripping libpython2.7.dylib
+stripping _Evt.so
+stripping _codecs_jp.so
+stripping _functools.so
+stripping termios.so
+stripping _Menu.so
+stripping _codecs_hk.so
+stripping _random.so
+stripping Couchapp
+stripping _codecs_iso2022.so
+stripping _scproxy.so
+stripping _File.so
+stripping _hashlib.so
+stripping _bisect.so
+stripping Nav.so
+stripping _ssl.so
+stripping unicodedata.so
+stripping _collections.so
+stripping _AE.so
+stripping binascii.so
+stripping _codecs_kr.so
+stripping pyexpat.so
+stripping bz2.so
+stripping operator.so
+stripping _multibytecodec.so
+stripping math.so
+stripping grp.so
+stripping _Dlg.so
+stripping _Ctl.so
+stripping cStringIO.so
+stripping gestalt.so
+stripping fcntl.so
+stripping _socket.so
+stripping cPickle.so
+stripping _weakref.so
+stripping zlib.so
+stripping saved 790336 bytes (4914272 / 5704608)
