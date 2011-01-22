@@ -53,6 +53,9 @@ if os.name == "nt":
     except ImportError:
         raise SystemExit('You need py2exe installed to run Couchapp.')
     
+if sys.platform == "darwin":
+    extra['setup_requires'] = ['py2app', 'restkit'],
+    extra['app'] = ['bin/couchapp.py']
 
 from couchapp import __version__
  
