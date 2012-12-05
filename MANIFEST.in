@@ -1,8 +1,8 @@
+recursive-exclude tests *
 include LICENSE
 include NOTICE
 include README.rst
 include THANKS
 recursive-include couchapp/templates *
-recursive-include tests/testapp *
 recursive-include resources *
 recursive-include doc *
